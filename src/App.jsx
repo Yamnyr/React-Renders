@@ -3,6 +3,7 @@ import FoldableCard from "./components/FoldableCard";
 import cardsData from "./constants/cardsData";
 import Cards from "./Cards";
 import useNotificationsData from "./hooks/useNotificationsData";
+import NotificationsCenter from "./components/NotificationsCenter.jsx";
 
 function App() {
   const { addNotification, notificationsData } = useNotificationsData();
@@ -30,8 +31,9 @@ function App() {
         <Cards cardsData={cardsData} />
       </main>
       <footer className="app__footer footer">
-        {notificationsData.length}
-        {notificationsData.length > 1 ? " notifications" : " notification"}
+        <NotificationsCenter />
+        {/* {notificationsData.length} */}
+        {/* {notificationsData.length > 1 ? " notifications" : " notification"} */}
       </footer>
     </div>
   );

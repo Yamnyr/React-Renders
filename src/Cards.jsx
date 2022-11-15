@@ -19,12 +19,12 @@ function Cards(props) {
   } */
 
   function handleToggleOpened(i) {
-    console.log("handleToggleOpened", i);
+    // console.log("handleToggleOpened", i);
     setOpenedIndex(i);
   }
 
   // seconde methode avec map
-  console.log(openedIndex);
+  // console.log(openedIndex);
   const FoldableCards = cardsData.map((card, i) => (
     <FoldableCard
       onToggleOpened={() => handleToggleOpened(i)}
