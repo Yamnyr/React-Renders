@@ -1,16 +1,18 @@
 import React from "react";
 import cardsData from "./constants/cardsData";
+// import FoldableCard from "./components/FoldableCard";
 import Cards from "./Cards";
 import useNotificationsData from "./hooks/useNotificationsData";
+import useRendersNumber from "./hooks/useRendersNumber";
 import NotificationsCenter from "./components/NotificationsCenter";
 
 function App() {
   const { addNotification, notificationsData } = useNotificationsData();
-  console.log(cardsData);
+  const renderNumber = useRendersNumber();
   return (
     <div className="app">
       <header className="app__header header">
-        <h1 className="header__title">Introduction to React</h1>
+        <h1 className="header__title"> [{renderNumber}] Introduction to React</h1>
       </header>
       <main className="app__main">
         <button type="button" onClick={addNotification} className="btn">

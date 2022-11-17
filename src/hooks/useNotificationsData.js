@@ -9,8 +9,8 @@ export function useNotificationsData() {
     setNotificationsData([
       {
         id: lastNotificationId,
-        title: "test",
-        content: "test",
+        title: `Notification ${lastNotificationId}`,
+        content: "content",
       },
       ...notificationsData,
     ]);
