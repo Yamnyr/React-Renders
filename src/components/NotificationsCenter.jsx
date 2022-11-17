@@ -1,31 +1,38 @@
 import React from "react";
-import Notification from "./Notification.jsx";
-import useNotificationsData from "../hooks/useNotificationsData";
-import Card from "./FoldableCard.jsx";
+import PropTypes from "prop-types";
+import Notification from "./Notification";
 
 function NotificationsCenter(props) {
-    const {notificationsData} = props;
-    const {notificationsData} = useNotificationsData();
+  const { notificationsData } = props;
 
-    const notificationsCards = notificationsData.map((notification, i) => (
-        <Card
-            key={notificationsData.id}
-            title={notificationsData.title}
-        >
-            {notificationsData.content}
-        </Card>
-    ));
+  const notificationsCards = notificationsData.map((notification) => (
+    <Notification data={notification} key={notificationsData.id} />
+  ));
 
-    return (
-        <>
-            <div className="notifications-center">
-                {notificationsData.length}
-            </div>
-            <div className={notifications}>
-                <div className="cards">{notificationsCards}</div>;
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="notifications-center">
+        {notificationsData.length}
+        {notificationsData.length > 1 ? " notifications" : " notification"}
+      </div>
+      <div className="notifications">
+        <div className="cards">{notificationsCards}</div>
+      </div>
+    </>
+  );
 }
+
+NotificationsCenter.propTypes = {
+  notificationsData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      content: PropTypes.string,
+    })
+  ),
+};
+NotificationsCenter.defaultProps = {
+  notificationsData: [],
+};
 
 export default NotificationsCenter;

@@ -1,12 +1,12 @@
 import React from "react";
-import FoldableCard from "./components/FoldableCard";
 import cardsData from "./constants/cardsData";
 import Cards from "./Cards";
 import useNotificationsData from "./hooks/useNotificationsData";
-import NotificationsCenter from "./components/NotificationsCenter.jsx";
+import NotificationsCenter from "./components/NotificationsCenter";
 
 function App() {
   const { addNotification, notificationsData } = useNotificationsData();
+  console.log(cardsData);
   return (
     <div className="app">
       <header className="app__header header">
@@ -31,9 +31,7 @@ function App() {
         <Cards cardsData={cardsData} />
       </main>
       <footer className="app__footer footer">
-        <NotificationsCenter />
-        {/* {notificationsData.length} */}
-        {/* {notificationsData.length > 1 ? " notifications" : " notification"} */}
+        <NotificationsCenter notificationsData={notificationsData} />
       </footer>
     </div>
   );
