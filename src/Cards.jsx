@@ -6,18 +6,17 @@ function Cards(props) {
   const [openedIndex, setOpenedIndex] = useState();
   // première methode avec une boucle
   /*  const FoldableCards = [];
-  for (let i = 0; i < cardsData.length; i++) {
-    FoldableCards.push(
-      <FoldableCard
-        key={cardsData[i].id}
-        opened={false}
-        title={cardsData[i].title}
-      >
-        {cardsData[i].content}
-      </FoldableCard>
-    );
-  } */
-
+    for (let i = 0; i < cardsData.length; i++) {
+      FoldableCards.push(
+        <FoldableCard
+          key={cardsData[i].id}
+          opened={false}
+          title={cardsData[i].title}
+        >
+          {cardsData[i].content}
+        </FoldableCard>
+      );
+    } */
   function handleToggleOpened(i) {
     // console.log("handleToggleOpened", i);
     setOpenedIndex(i);
@@ -38,4 +37,5 @@ function Cards(props) {
 
   return <div className="cards">{FoldableCards}</div>;
 }
+
 export default Cards;

@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Notification from "./Notification";
+import useRendersNumber from "../hooks/useRendersNumber.js";
 
 function NotificationsCenter(props) {
   const { notificationsData } = props;
+  const renderNumber = useRendersNumber();
 
   const notificationsCards = notificationsData.map((notification) => (
     <Notification data={notification} key={notificationsData.id} />
@@ -12,7 +14,7 @@ function NotificationsCenter(props) {
   return (
     <>
       <div className="notifications-center">
-        {notificationsData.length}
+        [{renderNumber}] {notificationsData.length}
         {notificationsData.length > 1 ? " notifications" : " notification"}
       </div>
       <div className="notifications">
@@ -34,5 +36,4 @@ NotificationsCenter.propTypes = {
 NotificationsCenter.defaultProps = {
   notificationsData: [],
 };
-
 export default NotificationsCenter;

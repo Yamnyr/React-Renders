@@ -12,7 +12,9 @@ function App() {
   return (
     <div className="app">
       <header className="app__header header">
-        <h1 className="header__title"> [{renderNumber}] Introduction to React</h1>
+        <h1 className="header__title">
+          [{renderNumber}] Introduction to React
+        </h1>
       </header>
       <main className="app__main">
         <button type="button" onClick={addNotification} className="btn">
