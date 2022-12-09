@@ -4,6 +4,9 @@ import FoldableCard from "./components/FoldableCard";
 function Cards(props) {
   const { cardsData } = props;
   const [openedIndex, setOpenedIndex] = useState();
+  const [foldableCards, setFoldableCards] = useState([]);
+  // TODO : Optimisation des rendus de FoldableCard
+
   // première methode avec une boucle
   /*  const FoldableCards = [];
     for (let i = 0; i < cardsData.length; i++) {
@@ -18,12 +21,9 @@ function Cards(props) {
       );
     } */
   function handleToggleOpened(i) {
-    // console.log("handleToggleOpened", i);
     setOpenedIndex(i);
   }
-
   // seconde methode avec map
-  // console.log(openedIndex);
   const FoldableCards = cardsData.map((card, i) => (
     <FoldableCard
       onToggleOpened={() => handleToggleOpened(i)}
