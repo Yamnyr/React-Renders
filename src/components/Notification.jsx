@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Card from "./Card";
 
 function Notification(props) {
-  const { data } = props;
+  const { data, onDelete } = props;
   const { title, content } = data;
   const titleWithIcon = (
     <>
@@ -14,19 +14,18 @@ function Notification(props) {
     </>
   );
   return (
-    <Card className="notification" title={titleWithIcon}>
+    <Card onClick={onDelete} className="notification" title={titleWithIcon}>
       {content}
     </Card>
   );
 }
 Notification.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string,
-      content: PropTypes.string,
-    })
-  ),
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    content: PropTypes.string,
+  }),
+  onDelete: PropTypes.func.isRequired,
 };
 Notification.defaultProps = {
   data: [],

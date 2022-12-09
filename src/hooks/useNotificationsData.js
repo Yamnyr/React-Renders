@@ -8,16 +8,22 @@ export function useNotificationsData() {
     setLastNotificationId(lastNotificationId + 1);
     setNotificationsData([
       {
-        id: lastNotificationId,
+        id: lastNotificationId + 1,
         title: `Notification ${lastNotificationId}`,
         content: "content",
       },
       ...notificationsData,
     ]);
   };
+  const deleteNotification = (id) => {
+    setNotificationsData(
+      notificationsData.filter((notification) => notification.id !== id)
+    );
+  };
   return {
     notificationsData,
     addNotification,
+    deleteNotification,
   };
 }
 

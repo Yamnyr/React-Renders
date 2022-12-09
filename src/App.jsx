@@ -7,7 +7,8 @@ import useRendersNumber from "./hooks/useRendersNumber";
 import NotificationsCenter from "./components/NotificationsCenter";
 
 function App() {
-  const { addNotification, notificationsData } = useNotificationsData();
+  const { addNotification, notificationsData, deleteNotification } =
+    useNotificationsData();
   const renderNumber = useRendersNumber();
   return (
     <div className="app">
@@ -20,22 +21,10 @@ function App() {
         <button type="button" onClick={addNotification} className="btn">
           Add a notification
         </button>
-        {/* <div className="cards">
-          <FoldableCard title="Titre 1">Contenu 1</FoldableCard>
-          <FoldableCard opened title="Titre 2">
-            Contenue 2
-          </FoldableCard>
-          <FoldableCard opened title="Titre 3">
-            Contenue 3
-          </FoldableCard>
-          <FoldableCard opened={false} title="Titre 4">
-            Contenue 4
-          </FoldableCard>
-        </div> */}
         <Cards cardsData={cardsData} />
       </main>
       <footer className="app__footer footer">
-        <NotificationsCenter notificationsData={notificationsData} />
+        <NotificationsCenter notificationsData={notificationsData} onDelete={deleteNotification}/>
       </footer>
     </div>
   );
