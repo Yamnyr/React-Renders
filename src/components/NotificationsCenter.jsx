@@ -2,10 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import Notification from "./Notification";
 import useRendersNumber from "../hooks/useRendersNumber";
+import { useShowable } from "../hooks/useShowable";
 
 function NotificationsCenter(props) {
   const { notificationsData, onDelete } = props;
   const renderNumber = useRendersNumber();
+  const { toggleShown, isShown } = useShowable();
 
   const notificationsCards = notificationsData.map((notification) => (
     <Notification
@@ -17,11 +19,12 @@ function NotificationsCenter(props) {
 
   return (
     <>
-      <div className="notifications-center">
+      <button  type="button" onClick={toggleShown} className=" notifiactions-center">
         [{renderNumber}] {notificationsData.length}
         {notificationsData.length > 1 ? " notifications" : " notification"}
-      </div>
-      <div className="notifications">{notificationsCards}</div>
+        {isShown === true ? " (hide)" : " (show)"}
+      </button>{!isShown &&
+      <div className="notifications">{notificationsCards}</div>}
     </>
   );
 }
