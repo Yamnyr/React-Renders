@@ -7,7 +7,7 @@ import { useShowable } from "../hooks/useShowable";
 function NotificationsCenter(props) {
   const { notificationsData, onDelete } = props;
   const renderNumber = useRendersNumber();
-  const { toggleShown, isShown, setIsShown} = useShowable();
+  const { toggleShown, isShown, setIsShown } = useShowable();
 
   useEffect(() => {
     setIsShown(true);
@@ -23,7 +23,11 @@ function NotificationsCenter(props) {
 
   return (
     <>
-      <button type="button" onClick={toggleShown} className=" notifiactions-center">
+      <button
+        type="button"
+        onClick={toggleShown}
+        className=" notifiactions-center"
+      >
         [{renderNumber}] {notificationsData.length}
         {notificationsData.length > 1 ? " notifications" : " notification"}
         {isShown === true ? " (hide)" : " (show)"}
